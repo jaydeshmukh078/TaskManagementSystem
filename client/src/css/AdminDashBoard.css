@@ -1,0 +1,80 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+/* Header */
+#admindash {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#admindash h1 {
+  margin: 0;
+  color: white;
+}
+
+/* Info bar */
+#adminname {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+#adminname a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+#adminname a:hover {
+  background-color: #f0f0f0; /* light gray hover */
+}
+
+/* Layout */
+#admindata {
+  display: flex;
+  min-height: 83vh;
+  background-color: white;
+  color: black;
+}
+
+/* Sidebar menu */
+#adminmenu {
+  width: 220px;
+  border-right: 2px solid black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#adminmenu a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+#adminmenu a:hover {
+  background-color: #f0f0f0; /* light gray on hover */
+}
+
+/* Main content area */
+#admincontent {
+  flex-grow: 1;
+  padding: 20px;
+}

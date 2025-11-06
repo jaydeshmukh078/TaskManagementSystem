@@ -1,0 +1,117 @@
+/* ===== Background Wrapper ===== */
+.user-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  background: #000;
+  color: #fff;
+  /* padding: 20px; */
+}
+
+/* ===== Glass Card ===== */
+.user-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 40px 50px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.user-card:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ===== Heading ===== */
+.user-card h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 35px;
+}
+
+/* ===== Form ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ===== Labels ===== */
+.form-group label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ===== Inputs & Select ===== */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Dropdown Options ===== */
+.form-group select option {
+  background-color: #111;
+  color: #fff;
+}
+
+/* ===== Submit Button ===== */
+.submit-btn {
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 576px) {
+  .user-card {
+    padding: 30px 25px;
+  }
+  .user-card h2 {
+    font-size: 22px;
+  }
+}

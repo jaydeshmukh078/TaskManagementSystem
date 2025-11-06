@@ -1,26 +1,34 @@
 import { Link, Outlet } from "react-router-dom";
+import "../css/AdminDashBoard.css"; // CSS import
 
 const AdminDashBoard = () => {
-    return (
-        <>
-            <div id="admindash">
-                <h1> Admin Dashboard</h1>
-            </div>
-            <div id="adminname">
-                Welcome : {localStorage.getItem("adminname")} Email : {localStorage.getItem("adminemail")} ! Logout
-            </div>
-            <div id="admindata">
-                <div id="adminmenu">
+  const name = localStorage.getItem("adminname");
+  const email = localStorage.getItem("adminemail");
 
-                    <Link to="create-user">Create User</Link>
-                </div>
-                <div id="admincontent">
-                    <Outlet />
-                </div>
-            </div>
+  return (
+    <>
+      <div id="admindash">
+        <h1>Admin Dashboard</h1>
+      </div>
 
-        </>
-    )
-}
+      <div id="adminname">
+        Welcome: <strong>{name}</strong> &nbsp; | &nbsp; Email:{" "}
+        <strong>{email}</strong> &nbsp; | &nbsp;
+        <Link to="/">Logout</Link>
+      </div>
+
+      <div id="admindata">
+        <div id="adminmenu">
+          <Link to="create-user">Create User</Link>
+          <Link to="assign-task">Assign Task</Link>
+        </div>
+
+        <div id="admincontent">
+          <Outlet />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default AdminDashBoard;

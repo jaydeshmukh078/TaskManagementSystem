@@ -3,6 +3,9 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 import AdminDashBoard from "./admin/AdminDashBoard";
 import CreateUser from "./admin/CreateUser";
+import AssignTask from "./admin/AssignTask";
+import EmpDashBoard from "./employee/EmpDashBoard";
+import MyTask from "./employee/MyTask";
 
 const App = () => {
   return (
@@ -17,9 +20,20 @@ const App = () => {
         <Routes>
           <Route path="admin-dashboard" element={<AdminDashBoard />}>
             <Route path="create-user" element={<CreateUser />} />
+            <Route path="assign-task" element={<AssignTask />} />
 
           </Route>
         </Routes>
+
+        <Routes>
+          <Route path="emp-dashboard" element={<EmpDashBoard />}>
+            <Route path="mytask" element={<MyTask />} />
+
+          </Route>
+
+        </Routes>
+
+
       </BrowserRouter>
     </>
   )

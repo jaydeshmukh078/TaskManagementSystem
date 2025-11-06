@@ -1,0 +1,27 @@
+#footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#footer p {
+  margin: 0;
+}
+
+.brand {
+  font-weight: 600;
+  color: rgb(223, 235, 48); /* highlight premium brand name */
+}
+
+@media (max-width: 600px) {
+  #footer {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+}
