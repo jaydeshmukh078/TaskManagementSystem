@@ -22,7 +22,7 @@ const CreateUser = () => {
     if (!input.empname || !input.empemail || !input.designation) {
       toast.warning("Please fill all fields!", {
         position: "bottom-right",
-        theme: "dark",
+        theme: "light",
       });
       return;
     }
@@ -34,7 +34,7 @@ const CreateUser = () => {
 
       toast.success("✅ User created successfully!", {
         position: "bottom-right",
-        theme: "dark",
+        theme: "light",
         autoClose: 3000,
       });
 
@@ -43,16 +43,22 @@ const CreateUser = () => {
       console.error(error);
       toast.error("❌ Something went wrong!", {
         position: "bottom-right",
-        theme: "dark",
+        theme: "light",
       });
     }
   };
 
   return (
-    <div className="user-wrapper">
-      <div className="user-card">
-        <h2>Create New User</h2>
-        <form onSubmit={handleSubmit}>
+    <div className="createuser-container">
+      <div className="createuser-box">
+        <div className="welcome-text">
+          <h1>👋 Welcome, Admin!</h1>
+          <p>
+            Manage your team efficiently by adding new employees to your Task Management System.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="createuser-form">
           <div className="form-group">
             <label>Employee Name</label>
             <input
@@ -99,7 +105,6 @@ const CreateUser = () => {
           </button>
         </form>
       </div>
-
     </div>
   );
 };

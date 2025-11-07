@@ -1,17 +1,125 @@
-#header {
-  background-color: #000; /* blue navbar background */
-  color: white; /* white text color */
-  text-align: center;
-  padding: 15px 0;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+/* Reset and base style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.heading1 {
-  /* text-align: left; */
-  font-size: 30px;
-  margin: 0;
-  padding: 0 10px;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 50px;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Logo section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  background: linear-gradient(90deg, #fff, #ccc);
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
   letter-spacing: 1px;
-  font-weight: 800;
-  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #cccccc;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons (Signup & Login) */
+.btn {
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.signup {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.signup:hover {
+  background: #ffffff;
+  color: #000000 !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  border-color: #ffffff;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
 }

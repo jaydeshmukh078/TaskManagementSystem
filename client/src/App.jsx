@@ -6,6 +6,7 @@ import CreateUser from "./admin/CreateUser";
 import AssignTask from "./admin/AssignTask";
 import EmpDashBoard from "./employee/EmpDashBoard";
 import MyTask from "./employee/MyTask";
+import Signup from "./pages/SignUp";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="signup" element={<Signup/>}/>
 
           </Route>
         </Routes>

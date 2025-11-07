@@ -1,95 +1,137 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../css/MyTask.css";
 
 const MyTask = () => {
   const [mydata, setMydata] = useState([]);
   const [show, setShow] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [report, setReport] = useState({ status: "", days: "" });
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (task) => {
+    setSelectedTask(task);
+    setShow(true);
+  };
 
-  const laodData = async () => {
+  const loadData = async () => {
     try {
-      let api = `${import.meta.env.VITE_BACKEND_URL}/employee/showtask/?id=${localStorage.getItem("empid")}`;
+      let api = `${import.meta.env.VITE_BACKEND_URL}/employee/showtask/?id=${localStorage.getItem(
+        "empid"
+      )}`;
       const response = await axios.get(api);
-      console.log(response.data);
       setMydata(response.data);
     } catch (error) {
       console.log(error);
+      toast.error("Failed to load task data!");
     }
   };
 
   useEffect(() => {
-    laodData();
+    loadData();
   }, []);
 
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setReport((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    toast.success("Report submitted successfully!", {
+      theme: "dark",
+      position: "top-center",
+    });
+    setShow(false);
+    setReport({ status: "", days: "" });
+  };
+
   let sno = 0;
-  const ans = mydata.map((key) => {
-    sno++;
-    return (
-      <tr key={key._id}>
-        <td>{sno}</td>
-        <td>{key.task}</td>
-        <td>{key.duration}</td>
-        <td>{key.priority}</td>
-        <td>
-          <button onClick={handleShow}>Send Report!</button>
-        </td>
-      </tr>
-    );
-  });
 
   return (
-    <>
-      <h1>My Task Detail</h1>
-      <hr />
+    <div className="mytask-container">
+      <h1>My Task Details</h1>
 
-      <table border="1">
+      <table className="task-table">
         <thead>
           <tr>
             <th>#</th>
             <th>Task Detail</th>
-            <th>Duration in Days</th>
-            <th>Priority Level</th>
-            <th></th>
+            <th>Duration (Days)</th>
+            <th>Priority</th>
+            <th>Action</th>
           </tr>
         </thead>
-        <tbody>{ans}</tbody>
+        <tbody>
+          {mydata.map((task) => (
+            <tr key={task._id}>
+              <td>{++sno}</td>
+              <td>{task.task}</td>
+              <td>{task.duration}</td>
+              <td>{task.priority}</td>
+              <td>
+                <button
+                  className="report-btn"
+                  onClick={() => handleShow(task)}
+                >
+                  Send Report
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
 
       {show && (
-        <div>
-          <h2>Your Task Report</h2>
-          <form>
-            <div>
-              <label>Select Task Status</label>
-              <br />
-              <select>
-                <option>select task status</option>
-                <option value="Fully Competed">Fully Completed</option>
-                <option value="Partial Completed">Partial Completed</option>
-                <option value="No Completed">No Completed</option>
-              </select>
-            </div>
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Submit Task Report</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Select Task Status:</label>
+                <select
+                  name="status"
+                  value={report.status}
+                  onChange={handleInput}
+                  required
+                >
+                  <option value="">Select task status</option>
+                  <option value="Fully Completed">Fully Completed</option>
+                  <option value="Partial Completed">Partial Completed</option>
+                  <option value="Not Completed">Not Completed</option>
+                </select>
+              </div>
 
-            <div>
-              <label>Completion Days</label>
-              <br />
-              <input type="text" />
-            </div>
+              <div className="form-group">
+                <label>Completion Days:</label>
+                <input
+                  type="number"
+                  name="days"
+                  value={report.days}
+                  onChange={handleInput}
+                  required
+                />
+              </div>
 
-            <br />
-            <button type="submit">Submit</button>
-            <button type="button" onClick={handleClose}>
-              Close
-            </button>
-            <button type="button" onClick={handleClose}>
-              Save Changes
-            </button>
-          </form>
+              <div className="btn-row">
+                <button type="submit" className="submit-btn">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  className="close-btn"
+                  onClick={handleClose}
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

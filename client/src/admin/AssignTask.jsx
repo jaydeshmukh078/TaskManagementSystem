@@ -18,12 +18,15 @@ const AssignTask = () => {
 
   const loadData = async () => {
     try {
-      let api = `${import.meta.env.VITE_BACKEND_URL}/admin/empdisplay`;
+      const api = `${import.meta.env.VITE_BACKEND_URL}/admin/empdisplay`;
       const response = await axios.get(api);
       setMydata(response.data);
     } catch (error) {
       console.log(error);
-      toast.error("Failed to load employee data!");
+      toast.error("Failed to load employee data!", {
+        position: "bottom-right",
+        theme: "dark",
+      });
     }
   };
 
@@ -32,41 +35,40 @@ const AssignTask = () => {
   }, []);
 
   const handleInput = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
-    setInput((values) => ({ ...values, [name]: value }));
+    const { name, value } = e.target;
+    setInput((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let api = `${import.meta.env.VITE_BACKEND_URL}/admin/tasksave`;
+      const api = `${import.meta.env.VITE_BACKEND_URL}/admin/tasksave`;
       const response = await axios.post(api, { id: uid, ...input });
       console.log(response);
 
-      toast.success(" Task Assigned Successfully!", {
+      toast.success("✅ Task Assigned Successfully!", {
+        position: "bottom-right",
         theme: "dark",
-        position: "top-center",
       });
 
       setShow(false);
       setInput({});
     } catch (error) {
       console.log(error);
-      toast.error(" Failed to assign task!", {
+      toast.error("❌ Failed to assign task!", {
+        position: "bottom-right",
         theme: "dark",
-        position: "top-center",
       });
     }
   };
 
-  const ans = mydata.map((key) => (
-    <tr key={key._id}>
-      <td>{key.name}</td>
-      <td>{key.designation}</td>
-      <td>{key.email}</td>
+  const tableRows = mydata.map((emp) => (
+    <tr key={emp._id}>
+      <td>{emp.name}</td>
+      <td>{emp.designation}</td>
+      <td>{emp.email}</td>
       <td>
-        <button className="assign-btn" onClick={() => handleShow(key._id)}>
+        <button className="assign-btn" onClick={() => handleShow(emp._id)}>
           Assign Task
         </button>
       </td>
@@ -76,6 +78,9 @@ const AssignTask = () => {
   return (
     <div className="assign-task-container">
       <h1>Assign Task</h1>
+      <p className="subtitle">
+          Select an employee and assign them a new task below.
+        </p>
 
       <table className="task-table">
         <thead>
@@ -83,10 +88,10 @@ const AssignTask = () => {
             <th>Employee Name</th>
             <th>Designation</th>
             <th>Email</th>
-            <th></th>
+            <th>Action</th>
           </tr>
         </thead>
-        <tbody>{ans}</tbody>
+        <tbody>{tableRows}</tbody>
       </table>
 
       {show && (
@@ -95,22 +100,29 @@ const AssignTask = () => {
             <h2>Assign New Task</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Enter Task:</label>
-                <input type="text" name="task" onChange={handleInput} required />
-              </div>
-
-              <div className="form-group">
-                <label>Enter Duration (Days):</label>
+                <label>Enter Task</label>
                 <input
-                  type="number"
-                  name="duration"
+                  type="text"
+                  name="task"
                   onChange={handleInput}
+                  placeholder="Enter task name"
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label>Select Priority:</label>
+                <label>Enter Duration (Days)</label>
+                <input
+                  type="number"
+                  name="duration"
+                  onChange={handleInput}
+                  placeholder="Number of days"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Select Priority</label>
                 <select name="priority" onChange={handleInput} required>
                   <option value="">Select Priority</option>
                   <option value="High">High</option>
@@ -123,7 +135,11 @@ const AssignTask = () => {
                 <button type="submit" className="submit-btn">
                   Submit
                 </button>
-                <button type="button" className="close-btn" onClick={handleClose}>
+                <button
+                  type="button"
+                  className="close-btn"
+                  onClick={handleClose}
+                >
                   Close
                 </button>
               </div>
@@ -131,7 +147,6 @@ const AssignTask = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };

@@ -1,27 +1,125 @@
-#footer {
-  background: #000;
-  color: white;
+.footer {
+  background: linear-gradient(135deg, #000000, #1a1a1a);
+  color: #ffffff;
+  padding: 50px 20px 25px;
   text-align: center;
-  padding: 10px;
-  font-size: 20px;
-  position: fixed;
-  bottom: 0;
+  border-top: 1px solid #222;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 -2px 15px rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Brand Section */
+.footer-brand h2 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 6px;
+  letter-spacing: 0.3px;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover::after {
   width: 100%;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#footer p {
-  margin: 0;
+.footer-links a:hover {
+  color: #cccccc;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-.brand {
+/* Social Icons */
+.footer-social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #cccccc;
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  margin-top: 25px;
+  border-top: 1px solid #222;
+  padding-top: 15px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.footer-bottom .highlight {
+  color: #ffffff;
   font-weight: 600;
-  color: rgb(223, 235, 48); /* highlight premium brand name */
 }
 
-@media (max-width: 600px) {
-  #footer {
-    font-size: 12px;
-    padding: 10px 0;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 35px 15px;
+  }
+
+  .footer-brand h2 {
+    font-size: 22px;
+  }
+
+  .footer-links {
+    gap: 18px;
+  }
+
+  .footer-social a {
+    font-size: 18px;
   }
 }

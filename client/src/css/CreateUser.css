@@ -1,117 +1,120 @@
-/* ===== Background Wrapper ===== */
-.user-wrapper {
+/* === CONTAINER === */
+.createuser-container {
+  width: 100%;
+  min-height: 85vh;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 75vh;
-  background: #000;
-  color: #fff;
-  /* padding: 20px; */
+  align-items: flex-start;
+  padding: 60px 30px;
 }
 
-/* ===== Glass Card ===== */
-.user-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
+/* === FORM CARD === */
+.createuser-box {
+  width: 100%;
+  max-width: 650px;
+  background: #ffffff;
+  border: 2px solid #dcdcdc;
+  border-radius: 12px;
   padding: 40px 50px;
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
-.user-card:hover {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+.createuser-box:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   transform: translateY(-3px);
 }
 
-/* ===== Heading ===== */
-.user-card h2 {
-  color: #fff;
+/* === WELCOME SECTION === */
+.welcome-text {
   text-align: center;
-  font-size: 28px;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
-/* ===== Form ===== */
-form {
+.welcome-text h1 {
+  font-size: 26px;
+  color: #111111;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.welcome-text p {
+  font-size: 14px;
+  color: #555555;
+}
+
+/* === FORM === */
+.createuser-form {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 22px;
 }
 
-/* ===== Labels ===== */
-.form-group label {
-  font-weight: 500;
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 8px;
-  display: block;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== Inputs & Select ===== */
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+label {
   font-size: 15px;
-  outline: none;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222222;
+}
+
+input,
+select {
+  padding: 12px 15px;
+  border: 2px solid #cccccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+  color: #000000;
+  font-size: 15px;
   transition: all 0.3s ease;
 }
 
-.form-group input::placeholder {
-  color: #aaa;
+input:focus,
+select:focus {
+  border-color: #000000;
+  background-color: #ffffff;
+  outline: none;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ===== Dropdown Options ===== */
-.form-group select option {
-  background-color: #111;
-  color: #fff;
-}
-
-/* ===== Submit Button ===== */
+/* === BUTTON === */
 .submit-btn {
-  background-color: #fff;
-  color: #000;
-  font-weight: 600;
-  padding: 12px;
+  margin-top: 15px;
+  background-color: #000000;
+  color: #ffffff;
   border: none;
+  padding: 12px 25px;
   border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  background-color: #333333;
   transform: translateY(-2px);
 }
 
-.submit-btn:active {
-  transform: translateY(0);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 576px) {
-  .user-card {
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .createuser-box {
     padding: 30px 25px;
   }
-  .user-card h2 {
+
+  .welcome-text h1 {
     font-size: 22px;
+  }
+
+  .createuser-box h2 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
   }
 }
