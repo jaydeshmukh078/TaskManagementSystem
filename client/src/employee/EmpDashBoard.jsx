@@ -21,7 +21,7 @@ const EmpDashBoard = () => {
       <div id="empdata">
         <div id="empmenu">
           <Link to="mytask">My Tasks</Link>
-          <Link to="completed">Completed Tasks</Link>
+          <Link to="submitedtask">Submited Tasks</Link>
           <Link to="partial">Partially Completed Tasks</Link>
           <Link to="alltasks">All Tasks</Link>
         </div>

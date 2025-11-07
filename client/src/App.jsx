@@ -7,6 +7,8 @@ import AssignTask from "./admin/AssignTask";
 import EmpDashBoard from "./employee/EmpDashBoard";
 import MyTask from "./employee/MyTask";
 import Signup from "./pages/SignUp";
+import SeeReports from "./admin/SeeReports";
+import SubmitedTask from "./employee/SubmitedTask";
 
 const App = () => {
   return (
@@ -23,6 +25,7 @@ const App = () => {
           <Route path="admin-dashboard" element={<AdminDashBoard />}>
             <Route path="create-user" element={<CreateUser />} />
             <Route path="assign-task" element={<AssignTask />} />
+            <Route path="see-reports" element={<SeeReports />} />
 
           </Route>
         </Routes>
@@ -30,6 +33,7 @@ const App = () => {
         <Routes>
           <Route path="emp-dashboard" element={<EmpDashBoard />}>
             <Route path="mytask" element={<MyTask />} />
+            <Route path="submitedtask" element={<SubmitedTask />} />
 
           </Route>
 

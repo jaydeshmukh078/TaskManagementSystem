@@ -52,7 +52,8 @@ const taskSave = async (req, res) => {
         task: task,
         duration: duration,
         priority: priority,
-        empid: id
+        empid: id,
+        submitstatus:false
     })
 
     res.status(201).send("Task Successfully Created!");

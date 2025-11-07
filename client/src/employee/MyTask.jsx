@@ -6,14 +6,15 @@ import "../css/MyTask.css";
 
 const MyTask = () => {
   const [mydata, setMydata] = useState([]);
-  const [show, setShow] = useState(false);
-  const [selectedTask, setSelectedTask] = useState(null);
-  const [report, setReport] = useState({ status: "", days: "" });
-
-  const handleClose = () => setShow(false);
-  const handleShow = (task) => {
-    setSelectedTask(task);
-    setShow(true);
+    const [show, setShow] = useState(false);
+    const [taskstatus, setTaskStatus] = useState("");
+    const [taskduration, setTaskDuration]= useState("");
+    const [taskId, setTaskId]= useState("");
+    const handleClose = () => setShow(false);
+    
+  const handleShow = (tid) =>{ 
+    setTaskId(tid)
+    setShow(true)
   };
 
   const loadData = async () => {
@@ -33,20 +34,18 @@ const MyTask = () => {
     loadData();
   }, []);
 
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-    setReport((prev) => ({ ...prev, [name]: value }));
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    toast.success("Report submitted successfully!", {
-      theme: "dark",
-      position: "top-center",
-    });
-    setShow(false);
-    setReport({ status: "", days: "" });
-  };
+   const taskReportSubmit=async(e)=>{
+      e.preventDefault();
+      try {
+          let api=`${import.meta.env.VITE_BACKEND_URL}/employee/taskreport`;
+          const response = await axios.put(api, {taskstatus,taskduration, taskId });
+            console.log(response);
+      }
+       catch (error) {
+        console.log(error);
+      }
+  }
 
   let sno = 0;
 
@@ -88,13 +87,13 @@ const MyTask = () => {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Submit Task Report</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={taskReportSubmit}>
               <div className="form-group">
                 <label>Select Task Status:</label>
                 <select
                   name="status"
-                  value={report.status}
-                  onChange={handleInput}
+                 value={taskstatus}
+                 onChange={(e)=>{setTaskStatus(e.target.value)}}
                   required
                 >
                   <option value="">Select task status</option>
@@ -109,8 +108,8 @@ const MyTask = () => {
                 <input
                   type="number"
                   name="days"
-                  value={report.days}
-                  onChange={handleInput}
+                  value={taskduration}
+                  onChange={(e)=>{setTaskDuration(e.target.value)}}
                   required
                 />
               </div>

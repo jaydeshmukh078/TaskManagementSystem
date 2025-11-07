@@ -24,7 +24,20 @@ const showTask=async(req, res)=>{
      res.status(200).send(employee);
 }
 
+const taskReport=async(req, res)=>{
+    const {  taskstatus,  taskduration,  taskId}=req.body;
+ 
+     const task = await TaskModel.findByIdAndUpdate(taskId, {
+        taskstatus:taskstatus, 
+    completionday:taskduration,
+    submitstatus:true
+     })
+
+     res.status(201).send({msg:"Task Successfully Submited!"})
+}
+
 module.exports={
     empLogin,
-    showTask
+    showTask,
+    taskReport
 }
