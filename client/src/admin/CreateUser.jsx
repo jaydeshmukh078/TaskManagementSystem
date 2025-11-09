@@ -6,7 +6,7 @@ import "../css/CreateUser.css";
 
 const CreateUser = () => {
   const [input, setInput] = useState({
-    empname: "",
+    empname: "", 
     empemail: "",
     designation: "",
   });

@@ -8,7 +8,7 @@ const myPassword =()=>{
     for (var i=0; i<=7; i++){
         let mynum=Math.floor(Math.random()*strLen);
         PassWord+=str.charAt(mynum);
-    }
+    } 
 
     return PassWord;
 }

@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   min-height: 90vh;
   padding: 80px 10%;
   background: linear-gradient(135deg, #f9f9f9 70%, #ececec);

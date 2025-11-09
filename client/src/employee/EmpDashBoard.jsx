@@ -5,7 +5,7 @@ const EmpDashBoard = () => {
   const empName = localStorage.getItem("empname") || "Employee";
   const empDesignation = localStorage.getItem("empdesignation") || "Designation";
 
-  return (
+  return ( 
     <>
       {/* Top Black Header */}
       <div id="empdash">

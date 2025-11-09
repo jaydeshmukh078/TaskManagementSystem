@@ -9,6 +9,6 @@ const taskSchema = new mongoose.Schema({
     taskstatus:String, 
     completionday:Number,
     submitstatus:Boolean
-})
+}) 
 
 module.exports = mongoose.model("task", taskSchema);

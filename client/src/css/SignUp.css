@@ -58,7 +58,7 @@
   padding: 60px 50px;
   background-color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center;
 }
 

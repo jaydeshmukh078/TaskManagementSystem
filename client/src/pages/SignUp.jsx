@@ -63,7 +63,7 @@ const Signup = () => {
           <form onSubmit={handleSubmit} className="signup-form">
             <div className="form-group">
               <label htmlFor="usertype">User Type</label>
-              <select
+              <select 
                 id="usertype"
                 value={usertype}
                 onChange={(e) => setUserType(e.target.value)}

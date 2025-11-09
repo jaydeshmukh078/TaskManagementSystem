@@ -9,7 +9,7 @@ body {
 /* Header (Black Bar) */
 #empdash {
   background-color: black;
-  color: white;
+  color: white; 
   text-align: center;
   padding: 20px;
 }

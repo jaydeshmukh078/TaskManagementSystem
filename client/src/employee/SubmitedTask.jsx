@@ -6,7 +6,7 @@ const SubmitedTask = () => {
     const [mydata, setMydata] = useState([]);
 
 
-    const laodData = async () => {
+    const laodData = async () => { 
         try {
             let api = `${import.meta.env.VITE_BACKEND_URL}/employee/showtask/?id=${localStorage.getItem("empid")}`;
             const response = await axios.get(api);

@@ -72,7 +72,7 @@ const AssignTask = () => {
           Assign Task
         </button>
       </td>
-    </tr>
+    </tr> 
   ));
 
   return (

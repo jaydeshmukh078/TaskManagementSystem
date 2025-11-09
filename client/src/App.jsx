@@ -13,7 +13,7 @@ import SubmitedTask from "./employee/SubmitedTask";
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter> 
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />

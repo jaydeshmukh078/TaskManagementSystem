@@ -19,7 +19,7 @@ const Footer = () => {
           <a href="#">Terms</a>
           <a href="#">Contact</a>
         </div>
-
+ 
         {/* Social Media Icons */}
         <div className="footer-social">
           <a href="#"><FaFacebookF /></a>

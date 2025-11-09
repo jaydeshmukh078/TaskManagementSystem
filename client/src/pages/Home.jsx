@@ -12,7 +12,7 @@ const Home = () => {
           <h1>
             Manage Your <span className="highlight">Tasks</span> <br /> With
             Ease & Efficiency
-          </h1>
+          </h1> 
           <p>
             Streamline your workflow, collaborate with your team, and boost productivity — 
             all in one powerful and secure platform designed for efficiency.

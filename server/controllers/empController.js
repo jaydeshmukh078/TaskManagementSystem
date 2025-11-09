@@ -23,7 +23,7 @@ const showTask=async(req, res)=>{
      const employee= await TaskModel.find({empid:id});
      res.status(200).send(employee);
 }
-
+ 
 const taskReport=async(req, res)=>{
     const {  taskstatus,  taskduration,  taskId}=req.body;
  

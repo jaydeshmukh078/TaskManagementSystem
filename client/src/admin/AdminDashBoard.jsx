@@ -9,7 +9,7 @@ const AdminDashBoard = () => {
     <>
       <div id="admindash">
         <h1>Admin Dashboard</h1>
-      </div>
+      </div> 
 
       <div id="adminname">
         Welcome: <strong>{name}</strong> &nbsp; | &nbsp; Email:{" "}
