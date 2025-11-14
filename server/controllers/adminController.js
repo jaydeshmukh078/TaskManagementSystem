@@ -57,11 +57,26 @@ const taskSave = async (req, res) => {
     })
 
     res.status(201).send("Task Successfully Created!");
-
 }
+
+const taskreportDisplay=async(req, res)=>{
+  const taskreport= await TaskModel.find({submitstatus:true}).populate("empid");
+  res.status(200).send(taskreport);
+}
+
+
+const taskReassign=async(req, res)=>{
+     const task = await TaskModel.findByIdAndUpdate(req.query.tid, {
+         submitstatus:false 
+     })
+     res.status(201).send({msg:"Task Succesfully Updated!"});
+}
+
 module.exports = {
     adminLogin,
     userCreate,
     empDisplay,
-    taskSave
+    taskSave,
+    taskreportDisplay,
+    taskReassign
 }

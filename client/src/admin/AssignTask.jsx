@@ -46,7 +46,7 @@ const AssignTask = () => {
       const response = await axios.post(api, { id: uid, ...input });
       console.log(response);
 
-      toast.success("✅ Task Assigned Successfully!", {
+      toast.success("Task Assigned Successfully!", {
         position: "bottom-right",
         theme: "dark",
       });
@@ -55,7 +55,7 @@ const AssignTask = () => {
       setInput({});
     } catch (error) {
       console.log(error);
-      toast.error("❌ Failed to assign task!", {
+      toast.error("Failed to assign task!", {
         position: "bottom-right",
         theme: "dark",
       });

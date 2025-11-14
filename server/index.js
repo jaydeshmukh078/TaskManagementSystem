@@ -17,7 +17,13 @@ app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
 
 // Use CORS middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://taskmanagementsystem-2dyq.onrender.com', // your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // if you use cookies or authentication headers
+}));
+
+app.use(express.json());
 
 app.use("/admin", AdminRoute);
 app.use("/employee", EmpRoute);

@@ -34,6 +34,8 @@ const Signup = () => {
       } else {
         localStorage.setItem("empname", response.data.employee.name);
         localStorage.setItem("empemail", response.data.employee.email);
+        localStorage.setItem("empid", response.data.employee._id);
+        localStorage.setItem("empdesignation", response.data.employee.designation);
         navigate("/emp-dashboard");
       }
     } catch (error) {
