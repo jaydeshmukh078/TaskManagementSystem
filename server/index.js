@@ -18,7 +18,7 @@ app.use(bodyparser.json())
 
 // Use CORS middleware
 app.use(cors({
-  origin: 'https://taskmanagementsystem-2dyq.onrender.com', // your frontend domain
+  origin: 'https://taskmanagementsystem-f.onrender.com', // your frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true, // if you use cookies or authentication headers
 }));
