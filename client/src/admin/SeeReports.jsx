@@ -3,6 +3,7 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import "../css/SeeReports.css";
+import { toast } from "react-toastify";
 
 const SeeReports = () => {
   const [mydata, setMydata] = useState([]);
@@ -26,10 +27,16 @@ const SeeReports = () => {
     try {
       let api = `${import.meta.env.VITE_BACKEND_URL}/admin/taskreassign?tid=${tid}`;
       const response = await axios.get(api);
-      console.log(response.data);
-      alert("Task Reassigned: " + tid);
+       toast.success("Task Reassigned Successfully!", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to Reassign Task!", {
+      position: "top-center",
+      autoClose: 2000,
+    });
     }
   };
 
@@ -50,8 +57,7 @@ const SeeReports = () => {
             <th>Designation</th>
             <th>Completion Days</th>
             <th>Task Status</th>
-            <th>Submit Status</th> {/* Missing column added */}
-            <th>Action</th>        {/* Missing column added */}
+            <th>Action</th> 
           </tr>
         </thead>
 
@@ -67,7 +73,6 @@ const SeeReports = () => {
               <td>{item.empid?.designation}</td>
               <td>{item.completionday}</td>
               <td>{item.taskstatus}</td>
-              <td>{item.submitstatus}</td>
               <td>
                 <Button
                   variant="danger"
