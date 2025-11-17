@@ -22,10 +22,10 @@ const Footer = () => {
  
         {/* Social Media Icons */}
         <div className="footer-social">
-          <a href="#"><FaFacebookF /></a>
+          <a href="https://www.facebook.com/profile.php?id=61574788091780"><FaFacebookF /></a>
           <a href="#"><FaTwitter /></a>
-          <a href="#"><FaLinkedinIn /></a>
-          <a href="#"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/imjaydeshmukh/"><FaLinkedinIn /></a>
+          <a href="https://github.com/jaydeshmukh078"><FaGithub /></a>
         </div>
       </div>
 
