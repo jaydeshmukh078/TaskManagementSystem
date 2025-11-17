@@ -52,7 +52,8 @@ const Signup = () => {
         <div className="signup-info">
           <h1>Welcome to <span>TaskManagement</span></h1>
           <p>
-            Organize your work, manage your teams, and stay on top of every task.
+            Efficiently manage your tasks and collaborate with your team all in one place.
+            Ensure deadlines are met and productivity soars. A better way to work together. 
             <br /> Let’s make productivity effortless.
           </p>
         </div>

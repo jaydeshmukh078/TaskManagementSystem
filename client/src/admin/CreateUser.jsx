@@ -6,7 +6,7 @@ import "../css/CreateUser.css";
 
 const CreateUser = () => {
   const [input, setInput] = useState({
-    empname: "", 
+    empname: "",
     empemail: "",
     designation: "",
   });
@@ -29,10 +29,9 @@ const CreateUser = () => {
 
     try {
       const api = `${import.meta.env.VITE_BACKEND_URL}/admin/usercreate`;
-      const response = await axios.post(api, input);
-      console.log(response.data);
+      await axios.post(api, input);
 
-      toast.success("✅ User created successfully!", {
+      toast.success("User created successfully!", {
         position: "bottom-right",
         theme: "light",
         autoClose: 3000,
@@ -40,8 +39,7 @@ const CreateUser = () => {
 
       setInput({ empname: "", empemail: "", designation: "" });
     } catch (error) {
-      console.error(error);
-      toast.error("❌ Something went wrong!", {
+      toast.error("Something went wrong!", {
         position: "bottom-right",
         theme: "light",
       });
@@ -49,62 +47,55 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="createuser-container">
-      <div className="createuser-box">
-        <div className="welcome-text">
-          <h1>👋 Welcome, Admin!</h1>
-          <p>
-            Manage your team efficiently by adding new employees to your Task Management System.
-          </p>
+    <div className="createuser-wrapper">
+      <h2 className="form-title">Create New User</h2>
+
+      <form onSubmit={handleSubmit} className="createuser-form">
+        <div className="form-group">
+          <label>Employee Name</label>
+          <input
+            type="text"
+            name="empname"
+            value={input.empname}
+            onChange={handleInput}
+            placeholder="Enter full name"
+            required
+          />
         </div>
 
-        <form onSubmit={handleSubmit} className="createuser-form">
-          <div className="form-group">
-            <label>Employee Name</label>
-            <input
-              type="text"
-              name="empname"
-              value={input.empname}
-              onChange={handleInput}
-              placeholder="Enter full name"
-              required
-            />
-          </div>
+        <div className="form-group">
+          <label>Employee Email</label>
+          <input
+            type="email"
+            name="empemail"
+            value={input.empemail}
+            onChange={handleInput}
+            placeholder="Enter email address"
+            required
+          />
+        </div>
 
-          <div className="form-group">
-            <label>Employee Email</label>
-            <input
-              type="email"
-              name="empemail"
-              value={input.empemail}
-              onChange={handleInput}
-              placeholder="Enter email address"
-              required
-            />
-          </div>
+        <div className="form-group">
+          <label>Designation</label>
+          <select
+            name="designation"
+            value={input.designation}
+            onChange={handleInput}
+            required
+          >
+            <option value="">Select designation</option>
+            <option value="Programmer">Programmer</option>
+            <option value="Tester">Tester</option>
+            <option value="Designer">Designer</option>
+            <option value="DB Designer">Database Designer</option>
+            <option value="Analyst">Analyst</option>
+          </select>
+        </div>
 
-          <div className="form-group">
-            <label>Designation</label>
-            <select
-              name="designation"
-              value={input.designation}
-              onChange={handleInput}
-              required
-            >
-              <option value="">Select designation</option>
-              <option value="Programmer">Programmer</option>
-              <option value="Tester">Tester</option>
-              <option value="Designer">Designer</option>
-              <option value="DB Designer">Database Designer</option>
-              <option value="Analyst">Analyst</option>
-            </select>
-          </div>
-
-          <button type="submit" className="submit-btn">
-            Create User
-          </button>
-        </form>
-      </div>
+        <button type="submit" className="submit-btn">
+          Create User
+        </button>
+      </form>
     </div>
   );
 };

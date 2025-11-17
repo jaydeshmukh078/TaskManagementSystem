@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import { FiUserPlus, FiFileText, FiClipboardList, FiLogOut } from "react-icons/fi";
+import { FiUserPlus, FiFileText, FiLogOut, FiClipboard } from "react-icons/fi";
 import "../css/AdminDashBoard.css";
 
 const AdminDashBoard = () => {
@@ -27,7 +27,7 @@ const AdminDashBoard = () => {
           </Link>
 
           <Link to="assign-task">
-            <FiClipboardList size={18} /> &nbsp; Assign Task
+            <FiClipboard size={18} /> &nbsp; Assign Task
           </Link>
 
           <Link to="see-reports">

@@ -27,29 +27,36 @@ body {
 }
 
 /* Logo section */
+/* Logo section */
 .logo-section {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: center;      /* vertically align FIX */
+  gap: 12px;
 }
 
+/* Logo box */
 .logo {
-  background: linear-gradient(90deg, #fff, #ccc);
+  background: #fff;
   color: #000;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 8px 12px;
-  border-radius: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 6px 10px;         /* reduced padding FIX */
+  border-radius: 6px;
   letter-spacing: 1px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Brand name */
 .brand-name {
-  font-size: 22px;
+  font-size: 20px;           /* balanced with logo */
   font-weight: 600;
   color: #fff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  line-height: 1;            /* vertical alignment FIX */
+  margin-top: 2px;           /* minor adjust fix */
 }
+
 
 /* Navigation links */
 .nav-links {
