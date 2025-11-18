@@ -28,7 +28,7 @@ app.use(express.json());
 app.use("/admin", AdminRoute);
 app.use("/employee", EmpRoute);
 
-const Port = process.env.PORT || 8000
+const Port = process.env.PORT || 8000 
 app.listen(Port, ()=>{
     console.log(`Server run on ${Port}  Port!`);
 })
