@@ -1,0 +1,70 @@
+/* === Page Heading === */
+h1 {
+  text-align: center;
+  font-weight: 600;
+  color: #000;
+  margin-top: 20px;
+}
+
+/* === Divider === */
+hr {
+  border: none;
+  height: 2px;
+  background: #000;
+  width: 90%;
+  margin: 10px auto 20px auto;
+}
+
+/* === Table Styling === */
+table {
+  width: 95%;
+  margin: auto;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+/* Header */
+table thead th {
+  background: #000;
+  color: #fff;
+  padding: 12px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Rows */
+table tbody td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+}
+
+/* Alternating rows */
+table tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* Row hover effect */
+table tbody tr:hover {
+  background: #e6e6e6;
+  transition: 0.2s;
+}
+
+/* === Button Styling === */
+button.btn-danger {
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #000 !important;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+button.btn-danger:hover {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #000 !important;
+}
