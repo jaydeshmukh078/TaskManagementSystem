@@ -1,11 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
 import "../css/EmpDashBoard.css";
+import { FiUserPlus, FiFileText, FiLogOut, FiClipboard } from "react-icons/fi";
 
 const EmpDashBoard = () => {
   const empName = localStorage.getItem("empname") || "Employee";
   const empDesignation = localStorage.getItem("empdesignation") || "Designation";
 
-  return ( 
+  return (
     <>
       {/* Top Black Header */}
       <div id="empdash">
@@ -14,7 +15,9 @@ const EmpDashBoard = () => {
 
       {/* Second White Info Bar */}
       <div id="empname">
-        Welcome : {empName} | Designation : {empDesignation}
+        Welcome : {empName} | Designation : {empDesignation} | <Link to="/" className="logout-btn">
+          <FiLogOut size={16} /> Logout
+        </Link>
       </div>
 
       {/* Main Layout */}
@@ -22,8 +25,6 @@ const EmpDashBoard = () => {
         <div id="empmenu">
           <Link to="mytask">My Tasks</Link>
           <Link to="submitedtask">Submited Tasks</Link>
-          <Link to="partial">Partially Completed Tasks</Link>
-          <Link to="alltasks">All Tasks</Link>
         </div>
 
         <div id="empcontent">

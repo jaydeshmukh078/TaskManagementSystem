@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const bodyparser = require('body-parser');
 const cors = require('cors');
-const AdminRoute = require("./routes/adminRoute");
+const AdminRoute = require("./routes/adminRoute"); 
 const EmpRoute = require("./routes/employeeRoute");
 
 mongoose.connect(process.env.DBCONN).then(()=>{
@@ -18,7 +18,7 @@ app.use(bodyparser.json())
 
 // Use CORS middleware
 app.use(cors({
-  origin: 'https://taskmanagementsystem-f.onrender.com', // your frontend domain
+  origin: 'http://localhost:5173', // your frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true, // if you use cookies or authentication headers
 }));
