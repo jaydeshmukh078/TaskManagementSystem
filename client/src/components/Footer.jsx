@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import "../css/Footer.css";
 
 const Footer = () => {
@@ -22,8 +22,6 @@ const Footer = () => {
  
         {/* Social Media Icons */}
         <div className="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=61574788091780"><FaFacebookF /></a>
-          <a href="#"><FaTwitter /></a>
           <a href="https://www.linkedin.com/in/imjaydeshmukh/"><FaLinkedinIn /></a>
           <a href="https://github.com/jaydeshmukh078"><FaGithub /></a>
         </div>

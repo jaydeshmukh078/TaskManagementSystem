@@ -3,17 +3,18 @@ import "../css/Header.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  return ( 
+  return (
     <>
       <header className="navbar">
-        <div className="logo-section">
-          <div className="logo">TM</div>
-          <h1 className="brand-name">TaskManagement</h1>
-        </div>
+        <Link to="/" className="brand-link">
+          <div className="logo-section">
+            <div className="logo">TMS</div>
+            <h1 className="brand-name">TaskManagementSystem</h1>
+          </div>
+        </Link>
 
         <nav className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
+          <Link to="/">Home</Link>
           <Link to="/signup" className="btn signup">Signup</Link>
         </nav>
       </header>

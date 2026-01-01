@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 50px;
+  padding: 14px 150px;
   border-bottom: 1px solid #222;
   position: sticky;
   top: 0;
@@ -46,6 +46,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.brand-link {
+  text-decoration: none;    /* remove underline FIX */
+  display: flex;
+  align-items: center;
 }
 
 /* Brand name */
